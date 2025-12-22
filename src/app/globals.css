@@ -4,4 +4,13 @@
   /* Fonts */
 
   --font-manrope: var(--font-manrope);
+  --font-urbanist: var(--font-urbanist);
+}
+
+@layer components {
+  .bg-hero-image {
+    background-image: url("/images/hero-image.png");
+    background-size: cover;
+    background-position: center;
+  }
 }

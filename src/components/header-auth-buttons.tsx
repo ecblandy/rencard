@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 // Components
 import Button from "./ui/button";
 
@@ -9,12 +7,13 @@ export default function HeaderAuthButtons() {
       <Button
         sizeH="sm"
         variant="custom"
+        href="/signin"
         className="w-[4.9375rem] hover:bg-black hover:text-white"
       >
-        <Link href="/signin">Entrar</Link>
+        Entrar
       </Button>
-      <Button sizeH="sm" variant="default" className="w-25.25 px-[1rem]">
-        <Link href="/signup">começar</Link>
+      <Button sizeH="sm" variant="default" href="/signup" className="w-25.25 ">
+        Cadastrar
       </Button>
     </div>
   );
