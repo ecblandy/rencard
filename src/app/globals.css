@@ -1,4 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* Fonts */
+
+  --font-manrope: var(--font-manrope);
 }
