@@ -12,7 +12,7 @@ export default function Hero() {
         </h1>
 
         {/* Hero ask */}
-        <div className="flex items-center justify-end bg-[#FBFBFB80] max-w-[37.75rem] w-full h-[3.5rem] px-[1.875rem] my-[1.5rem] rounded-[.625rem]">
+        <div className=" pl-[5rem] flex items-center  bg-[#FBFBFB80] max-w-[33.75rem] w-full h-[3.5rem] px-[1.875rem] my-[1.5rem] rounded-[.625rem]">
           <p className="text-[2.5rem] text-[#454545] font-montserrat">
             <strong>E você já tem seu</strong> REN?
           </p>
