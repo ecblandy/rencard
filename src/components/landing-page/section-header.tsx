@@ -10,7 +10,7 @@ export default function SectionHeader({
   return (
     <div className="font-urbanist space-y-[.6875rem] text-center">
       <h2 className="font-bold text-[2.5rem] leading-[100%]">{title}</h2>
-      <p className="font-semibold text-[1.5rem] leading-[100%]">
+      <p className="font-semibold text-[1.5rem] text-[#7A7A7A] leading-[100%]">
         {description}
       </p>
     </div>

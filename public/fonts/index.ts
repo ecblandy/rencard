@@ -1,4 +1,4 @@
-import { Manrope, Urbanist } from "next/font/google";
+import { Manrope, Urbanist, Montserrat } from "next/font/google";
 
 // Manrop Font
 export const manrope = Manrope({
@@ -9,4 +9,9 @@ export const manrope = Manrope({
 export const urbainst = Urbanist({
   subsets: ["latin"],
   variable: "--font-urbanist",
+});
+
+export const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
 });
