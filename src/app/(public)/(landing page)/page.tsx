@@ -1,3 +1,4 @@
+import AdvancedResources from "@/components/landing-page/advanced-resources";
 import Hero from "@/components/landing-page/hero";
 import Plans from "@/components/landing-page/plans";
 import ProductVideo from "@/components/landing-page/product-video";
@@ -12,6 +13,7 @@ export default function LandingPage() {
       <StepByStep />
       <Plans />
       <Products />
+      <AdvancedResources />
     </div>
   );
 }
