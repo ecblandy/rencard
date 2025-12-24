@@ -74,7 +74,7 @@ const plansStyle: Record<PlanType, PlanStyle> = {
 
 export default function Plans() {
   return (
-    <div className="flex flex-col items-center gap-[2.5rem] py-[3.75rem] px-[1.25rem] bg-gradient-to-t from-[#FBFBFB] to-[#C2C2C2]">
+    <section className="flex flex-col items-center gap-[2.5rem] py-[3.75rem] px-[1.25rem] bg-gradient-to-t from-[#FBFBFB] to-[#C2C2C2]">
       <SectionHeader
         description="O Rencard se adapta ao seu estilo"
         title="Escolha o modelo que mais combina com você"
@@ -116,6 +116,6 @@ export default function Plans() {
           }
         )}
       </div>
-    </div>
+    </section>
   );
 }
