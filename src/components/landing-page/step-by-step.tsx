@@ -52,7 +52,7 @@ const stepsDetails: StepByStepDetails[] = [
 
 export default function StepByStep() {
   return (
-    <section className="flex flex-col max-sm:px-[1.25rem] px-[5.625rem] py-[3.75rem] h-[51.8125rem]">
+    <section className="flex flex-col max-sm:px-[1.25rem] px-[5.625rem] py-[3.75rem] min-h-[51.8125rem] h-auto">
       <SectionHeader
         title="Como funciona"
         description="Uma jornada simples e transparente, do produto ao perfil digital"
