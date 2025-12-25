@@ -14,4 +14,10 @@
     background-size: cover;
     background-position: center;
   }
+
+  .bg-cta-image {
+    background-image: url("/images/cta.svg");
+    background-size: cover;
+    background-position: center;
+  }
 }
