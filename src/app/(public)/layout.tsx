@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import Footer from "@/components/footer";
 import Header from "@/components/header";
 
 export default function PublicLayout({
@@ -10,6 +11,7 @@ export default function PublicLayout({
     <>
       <Header />
       {children}
+      <Footer />
     </>
   );
 }
