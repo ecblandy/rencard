@@ -5,10 +5,18 @@
 
 @theme inline {
   /* Fonts */
-
   --font-manrope: var(--font-manrope);
   --font-urbanist: var(--font-urbanist);
   --font-montserrat: var(--font-montserrat);
+
+  /* Neutral colors (design tokens) */
+  --color-neutral-soft: #939393;
+  --color-neutral-medium: #7a7a7a;
+  --color-neutral-strong: #454545;
+
+  --color-error: #c32222;
+  --color-error-soft: #fcf4f4;
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
