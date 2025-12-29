@@ -3,7 +3,7 @@ import Link from "next/link";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  sizeH: "sm" | "xl";
+  sizeH: "sm" | "xl" | "md";
   variant: "default" | "outline" | "custom" | "destructive";
   href?: string;
 }
@@ -15,7 +15,7 @@ export default function Button({
   href,
   ...props
 }: ButtonProps) {
-  const sizeMap = { sm: "h-[2.5rem]", xl: "h-[3.75rem]" };
+  const sizeMap = { sm: "h-[2.5rem]", xl: "h-[3.75rem]", md: "h-[3.125rem]" };
   const baseButtonClass = `font-manrope font-medium rounded-[.625rem] px-[1rem] py-[.5rem] transition-all duration-300 ease-in-out `;
 
   const variantMap = {
