@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { manrope } from "../../public/fonts";
+import { PreviewProvider } from "@/providers/preview-provider";
 
 export const metadata: Metadata = {
   title: "Rencard",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt_BR">
-      <body className={`${manrope.variable}  antialiased`}>{children}</body>
+      <body className={`${manrope.variable}  antialiased`}>
+        <PreviewProvider>{children}</PreviewProvider>
+      </body>
     </html>
   );
 }
