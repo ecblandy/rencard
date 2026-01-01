@@ -15,11 +15,11 @@ export default function Button({
   href,
   ...props
 }: ButtonProps) {
-  const sizeMap = { sm: "h-[2.5rem]", xl: "h-[3.75rem]", md: "h-[3.125rem]" };
+  const sizeMap = { sm: "h-[2.5rem]", md: "h-[3.125rem]", xl: "h-[3.75rem]" };
   const baseButtonClass = `font-manrope font-medium rounded-[.625rem] px-[1rem] py-[.5rem] transition-all duration-300 ease-in-out `;
 
   const variantMap = {
-    default: "bg-black text-white hover:bg-neutral-900",
+    default: "bg-black text-white hover:bg-neutral-strong cursor-pointer",
     outline: "border-2 border-black text-black hover:bg-black hover:text-white",
     custom: "cursor-pointer",
     destructive: `

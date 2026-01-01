@@ -13,7 +13,7 @@ const publicLinks = [
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col  bg-[#454545] min-h-[27.4375rem] h-auto px-[3.625rem] py-[2.375rem]">
+    <footer className="flex flex-col  bg-[#454545] min-h-[27.4375rem] h-auto px-[3.625rem] py-[2.375rem] mt-[3.75rem]">
       <div className="flex flex-wrap justify-between gap-[2.5rem]">
         <div className="space-y-[1.5rem]">
           <Image
@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
 
         <div className="font-manrope text-white space-y-[1rem]">
-          <h4 className="font-semibold">Geral</h4>
+          <p className="font-semibold">Geral</p>
           <ul className="space-y-[1rem] ">
             {publicLinks.map((link, index) => (
               <li key={index}>
@@ -41,7 +41,7 @@ export default function Footer() {
         </div>
 
         <div className="font-manrope space-y-[1.5rem] text-white">
-          <h4 className="font-semibold">Contato</h4>
+          <p className="font-semibold">Contato</p>
           <address className="space-y-[.375rem] not-italic">
             <p className="font-semibold">Ajuda e Parcerias</p>
             <Link
