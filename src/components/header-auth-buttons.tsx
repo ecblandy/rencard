@@ -12,7 +12,12 @@ export default function HeaderAuthButtons() {
       >
         Entrar
       </Button>
-      <Button sizeH="sm" variant="default" href="/signup" className="w-25.25 ">
+      <Button
+        sizeH="sm"
+        variant="default"
+        href="/auth/signup"
+        className="w-25.25 "
+      >
         Cadastrar
       </Button>
     </div>

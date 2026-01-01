@@ -1,9 +1,9 @@
 import { signIn } from "next-auth/react";
 
 // Types
-import { LoginSchema } from "./login.schema";
+import { LoginSchema } from "./signin-schema";
 
-export async function loginAction(data: LoginSchema) {
+export async function signinAction(data: LoginSchema) {
   const result = await signIn("credentials", {
     email: data.email,
     password: data.password,

@@ -1,6 +1,6 @@
 // Components
-import LoginForm from "@/features/auth/signin/login.page";
+import LoginForm from "@/features/auth/signin/signin.page";
 
-export default function LoginPage() {
+export default function SigninPage() {
   return <LoginForm />;
 }

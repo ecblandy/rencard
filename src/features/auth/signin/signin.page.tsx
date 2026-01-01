@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 
 // Schema && SchemaType
-import { loginSchema, LoginSchema } from "./login.schema";
+import { loginSchema, LoginSchema } from "./signin-schema";
 
 // Components
 import Label from "@/components/ui/label";
@@ -12,7 +12,7 @@ import Input from "@/components/ui/input";
 import Button from "@/components/ui/button";
 import FieldError from "@/components/field-error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useLogin } from "./use-login";
+import { useLogin } from "./use-signin";
 
 export default function LoginForm() {
   const {
