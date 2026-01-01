@@ -21,7 +21,7 @@ export default function HeaderNavLinks() {
   const pathname = usePathname();
   return (
     <nav aria-label="Navegação Principal">
-      <ul className="flex  gap-24.75 font-manrope text-black">
+      <ul className="flex max-sm:hidden gap-24.75 font-manrope text-black">
         {navLinks.map((link) => {
           const isActiveLink = pathname === link.href;
           const activeClass = isActiveLink ? "border-b-red-600" : "";

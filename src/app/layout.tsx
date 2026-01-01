@@ -4,8 +4,44 @@ import { manrope } from "../../public/fonts";
 import { PreviewProvider } from "@/providers/preview-provider";
 
 export const metadata: Metadata = {
-  title: "Rencard",
-  description: "",
+  title: "Rencard – Seu link, seus produtos e serviços",
+  description:
+    "Rencard é uma plataforma para centralizar seus links, produtos e serviços, incluindo RencardPro, RencTag e o Cartão Rencard. Organize tudo em um único lugar de forma prática e profissional.",
+  keywords: [
+    "Rencard",
+    "RencardPro",
+    "RencTag",
+    "Cartão Rencard",
+    "Linktree",
+    "Links",
+    "Produtos",
+    "Serviços",
+  ],
+  authors: [{ name: "Rencard", url: "https://rencard.com.br" }],
+  openGraph: {
+    title: "Rencard – Seu link, seus produtos e serviços",
+    description:
+      "Organize seus links, produtos e serviços em um só lugar com Rencard. Conheça RencardPro, RencTag e o Cartão Rencard.",
+    url: "https://rencard.com.br",
+    siteName: "Rencard",
+    images: [
+      {
+        url: "https://rencard.com.br/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Rencard - Organize seus links e produtos",
+      },
+    ],
+    locale: "pt-BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rencard – Seu link, seus produtos e serviços",
+    description:
+      "Organize seus links, produtos e serviços em um só lugar com Rencard. Conheça RencardPro, RencTag e o Cartão Rencard.",
+    images: ["https://rencard.com.br/images/og-image.png"],
+  },
 };
 
 export default function RootLayout({
@@ -14,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt_BR">
-      <body className={`${manrope.variable}  antialiased`}>
+    <html lang="pt-BR">
+      <body className={`${manrope.variable} antialiased`}>
         <PreviewProvider>{children}</PreviewProvider>
       </body>
     </html>
