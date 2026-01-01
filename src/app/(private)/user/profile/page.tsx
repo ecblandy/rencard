@@ -1,6 +1,6 @@
 "use client";
 
-import PageHeader from "@/components/dashboard/page-header";
+import PageHeader from "@/features/(roles)/components/page-header";
 import ActionButtonProfile from "@/components/user/action-button-profile";
 import PreviewCard from "@/components/user/preview-card";
 import RenderTabProfile from "@/components/user/render-tab-profile";

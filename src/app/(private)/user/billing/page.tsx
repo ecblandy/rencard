@@ -1,4 +1,4 @@
-import PageHeader from "@/components/dashboard/page-header";
+import PageHeader from "@/features/(roles)/components/page-header";
 import Button from "@/components/ui/button";
 import CardBilling from "@/components/user/card-billing";
 import { Check, X } from "lucide-react";
@@ -22,46 +22,55 @@ const features: Feature[] = [
 export default function BillingPage() {
   return (
     <section>
-      <PageHeader title="Assinatura" description="Gerencie seu plano, renovação e pagamentos"/>
+      <PageHeader
+        title="Assinatura"
+        description="Gerencie seu plano, renovação e pagamentos"
+      />
 
-      <span className="block uppercase text-neutral-medium text-[1.5rem] font-semibold font-urbanist mt-[2.5625rem] mb-[2rem]">Plano atual</span>
-
+      <span className="block uppercase text-neutral-medium text-[1.5rem] font-semibold font-urbanist mt-[2.5625rem] mb-[2rem]">
+        Plano atual
+      </span>
 
       <CardBilling>
         <div className="flex items-center justify-between">
           <div className="font-urbanist">
-          <h2 className=" font-bold text-[2rem] mb-[.625rem]">Rencard Pro</h2>
-          <p className="font-semibold text-[1.25rem] text-neutral-medium">Renova em 12 Ago, 2024</p>
-        </div>
+            <h2 className=" font-bold text-[2rem] mb-[.625rem]">Rencard Pro</h2>
+            <p className="font-semibold text-[1.25rem] text-neutral-medium">
+              Renova em 12 Ago, 2024
+            </p>
+          </div>
 
-        <div>
-          <Button sizeH="sm" variant="outline" href="/user/billing/new-plan">Alterar plano</Button>
-          
-        </div>
+          <div>
+            <Button sizeH="sm" variant="outline" href="/user/billing/new-plan">
+              Alterar plano
+            </Button>
+          </div>
         </div>
       </CardBilling>
 
-<span className="block uppercase text-neutral-medium text-[1.5rem] font-semibold font-urbanist mt-[2.5625rem] mb-[2rem]">O que está incluso</span>
+      <span className="block uppercase text-neutral-medium text-[1.5rem] font-semibold font-urbanist mt-[2.5625rem] mb-[2rem]">
+        O que está incluso
+      </span>
 
       <CardBilling>
-      <ul className="grid grid-cols-2 gap-2">
-        {features.map((feature) => (
-          <li
-            key={feature.name}
-            className={`flex items-center gap-2 ${
-              !feature.available ? "opacity-50" : ""
-            }`}
-          >
-            {feature.available ? (
-              <Check size={18} className="text-green-500" />
-            ) : (
-              <X size={18} className="text-gray-400" />
-            )}
-            <span>{feature.name}</span>
-          </li>
-        ))}
-      </ul>
-    </CardBilling>
+        <ul className="grid grid-cols-2 gap-2">
+          {features.map((feature) => (
+            <li
+              key={feature.name}
+              className={`flex items-center gap-2 ${
+                !feature.available ? "opacity-50" : ""
+              }`}
+            >
+              {feature.available ? (
+                <Check size={18} className="text-green-500" />
+              ) : (
+                <X size={18} className="text-gray-400" />
+              )}
+              <span>{feature.name}</span>
+            </li>
+          ))}
+        </ul>
+      </CardBilling>
     </section>
   );
 }

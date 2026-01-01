@@ -2,7 +2,7 @@ import Button from "../ui/button";
 import Input from "../ui/input";
 import Label from "../ui/label";
 import CardAccount from "./card-account";
-import HeaderForm from "./header-form";
+import HeaderForm from "../../features/(roles)/components/header-form";
 
 export default function AccountInfoForm() {
   return (

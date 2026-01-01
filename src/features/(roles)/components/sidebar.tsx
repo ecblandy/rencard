@@ -1,5 +1,7 @@
 import Image from "next/image";
-import DashboardNavLinks from "./dashboard-nav-links";
+
+// Components
+import SidebarNavLinks from "./sidebar-nav-links";
 
 export default function Sidebar() {
   return (
@@ -14,7 +16,7 @@ export default function Sidebar() {
       />
 
       {/* NavLinks */}
-      <DashboardNavLinks />
+      <SidebarNavLinks />
     </aside>
   );
 }

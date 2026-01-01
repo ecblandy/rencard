@@ -12,7 +12,7 @@ import Input from "@/components/ui/input";
 import Button from "@/components/ui/button";
 import FieldError from "@/components/field-error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useLogin } from "./use-signin";
+import { useSignin } from "./use-signin";
 
 export default function LoginForm() {
   const {
@@ -20,7 +20,7 @@ export default function LoginForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginSchema>({ resolver: zodResolver(loginSchema) });
-  const { onSubmit } = useLogin();
+  const { onSubmit } = useSignin();
 
   return (
     <form

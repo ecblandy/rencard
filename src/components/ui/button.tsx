@@ -20,7 +20,8 @@ export default function Button({
 
   const variantMap = {
     default: "bg-black text-white hover:bg-neutral-strong cursor-pointer",
-    outline: "border-2 border-black text-black hover:bg-black hover:text-white",
+    outline:
+      "border-2 border-black text-black hover:bg-black hover:text-white cusor-pointer",
     custom: "cursor-pointer",
     destructive: `
     text-neutral-900

@@ -1,5 +1,5 @@
 import "@/app/globals.css";
-import Sidebar from "@/components/sidebar";
+import Sidebar from "@/features/(roles)/components/sidebar";
 
 export default function PrivateLayout({
   children,
