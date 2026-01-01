@@ -9,7 +9,7 @@ export default function Surface({ children, className }: SurfaceProps) {
   return (
     <div
       className={clsx(
-        "py-[1rem] px-6 border border-neutral-medium rounded-[.625rem]",
+        "py-[1rem] px-6 border border-neutral-medium rounded-[.625rem] bg-white",
         className
       )}
     >

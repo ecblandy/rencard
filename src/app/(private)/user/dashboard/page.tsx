@@ -1,5 +1,5 @@
 import PageHeader from "@/features/(roles)/components/page-header";
-import PeriodFilter from "@/components/dashboard/period-filter";
+import PeriodFilter from "@/features/(roles)/components/period-filter";
 import MetricCard from "@/features/(roles)/components/metric-card";
 import { ProfileViewsChart } from "@/components/user/profile-views-chart";
 import { TopLinksChart } from "@/components/user/top-links-chart";

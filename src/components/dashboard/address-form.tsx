@@ -2,13 +2,13 @@ import Button from "../ui/button";
 import Input from "../ui/input";
 import Label from "../ui/label";
 import CardAccount from "./card-account";
-import HeaderForm from "../../features/(roles)/components/header-form";
+import HeaderCard from "../../features/(roles)/components/header-form";
 
 export default function AddressForm() {
   return (
     <CardAccount>
       <form>
-        <HeaderForm title="Endereço" description="Gerencie seus dados" />
+        <HeaderCard title="Endereço" description="Gerencie seus dados" />
         <fieldset>
           <div className="grid grid-cols-2 space-x-[1.125rem] space-y-[1.5rem]">
             <div className="flex flex-col">

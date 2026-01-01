@@ -83,7 +83,7 @@ const NAV_LINKS_BY_ROLE: Record<UserRole, NavLinks[]> = {
 
   admin: [
     {
-      label: "Admin Dashboard",
+      label: "Dashboard",
       icon: LayoutDashboard,
       href: "/admin/dashboard",
     },
@@ -102,7 +102,7 @@ const NAV_LINKS_BY_ROLE: Record<UserRole, NavLinks[]> = {
 
 export default function SidebarNavLinks() {
   const pathname = usePathname();
-  const links = NAV_LINKS_BY_ROLE["creator"];
+  const links = NAV_LINKS_BY_ROLE["admin"];
   return (
     <nav
       aria-label="Navegação principal"

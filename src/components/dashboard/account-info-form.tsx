@@ -2,13 +2,13 @@ import Button from "../ui/button";
 import Input from "../ui/input";
 import Label from "../ui/label";
 import CardAccount from "./card-account";
-import HeaderForm from "../../features/(roles)/components/header-form";
+import HeaderCard from "../../features/(roles)/components/header-form";
 
 export default function AccountInfoForm() {
   return (
     <CardAccount>
       <form>
-        <HeaderForm
+        <HeaderCard
           title="Informações da conta"
           description="Gerencie suas credenciais de acesso"
         />

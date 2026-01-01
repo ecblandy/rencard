@@ -17,7 +17,7 @@ export default function MetricCard({ options }: MetricCardProps) {
       {options.map(({ icon: Icon, label, value }, index) => (
         <div
           key={index}
-          className="px-[1.5rem] py-[1rem] rounded-[.625rem] border border-[#939393] max-w-[20.625rem] w-full "
+          className="px-[1.5rem] py-[1rem] rounded-[.625rem] border border-[#939393] bg-white max-w-[20.625rem] w-full "
         >
           <Icon size={25} />
           <strong className="font-urbanist font-bold text-[2.5rem]">

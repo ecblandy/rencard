@@ -2,14 +2,14 @@
 import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import Label from "@/components/ui/label";
-import HeaderForm from "@/features/(roles)/components/header-form";
+import HeaderCard from "@/features/(roles)/components/header-form";
 import Surface from "@/features/(roles)/components/surface";
 
 export default function PixKeyForm() {
   return (
     <Surface className="mt-[2.5625rem]">
       <form>
-        <HeaderForm
+        <HeaderCard
           title="Chave pix"
           description="Informe sua chave PIX para receber os pagamentos."
         />

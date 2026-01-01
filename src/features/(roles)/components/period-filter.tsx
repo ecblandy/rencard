@@ -1,7 +1,8 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import Button from "../ui/button";
+import Button from "../../../components/ui/button";
+import { useEffect } from "react";
 
 const PERIOD_OPTIONS = [
   { label: "Hoje", value: "today" },
@@ -14,6 +15,16 @@ export default function PeriodFilter() {
   const pathname = usePathname();
   const { replace } = useRouter();
   const params = new URLSearchParams(searchParams.toString());
+  const status = searchParams.get("status");
+
+  useEffect(() => {
+    if (!status) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("status", "today");
+
+      replace(`${pathname}?${params.toString()}`, { scroll: false });
+    }
+  }, [status, pathname, replace, searchParams]);
 
   function handleClick(status: string) {
     console.log(status);
