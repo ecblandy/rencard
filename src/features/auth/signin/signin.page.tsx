@@ -14,14 +14,36 @@ import Button from "@/components/ui/button";
 import FieldError from "@/components/field-error-message";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSignin } from "./use-signin";
+import { useEffect } from "react";
+import { useToast } from "@/providers/toast-provider";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginSchema>({ resolver: zodResolver(loginSchema) });
+
   const { onSubmit } = useSignin();
+  const { showToast } = useToast();
+
+  useEffect(() => {
+    if (searchParams.get("redirected")) {
+      showToast({
+        type: "error",
+        title: "Acesso necessário",
+        duration: 4000,
+        message:
+          "Você precisa estar logado para acessar esta página. Faça login para continuar.",
+      });
+
+      router.replace("/auth/signin");
+    }
+  }, [searchParams, router, showToast]);
 
   return (
     <motion.form
@@ -105,7 +127,7 @@ export default function LoginForm() {
             Esqueci a senha
           </Link>
 
-          <Button variant="default" sizeH="xl">
+          <Button type="submit" variant="default" sizeH="xl">
             Entrar
           </Button>
         </motion.div>

@@ -18,6 +18,7 @@ import { FaPix } from "react-icons/fa6";
 
 // Components
 import Button from "../../../components/ui/button";
+import { useLogout } from "@/features/auth/logout/use-logout";
 
 // Types
 
@@ -103,6 +104,8 @@ const NAV_LINKS_BY_ROLE: Record<UserRole, NavLinks[]> = {
 export default function SidebarNavLinks() {
   const pathname = usePathname();
   const links = NAV_LINKS_BY_ROLE["admin"];
+
+  const { logout } = useLogout();
   return (
     <nav
       aria-label="Navegação principal"
@@ -127,6 +130,7 @@ export default function SidebarNavLinks() {
       </ul>
 
       <Button
+        onClick={() => logout()}
         variant="destructive"
         sizeH="sm"
         className="flex items-center gap-[.5rem] w-full mt-[1.875rem]"

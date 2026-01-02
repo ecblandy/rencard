@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { manrope, montserrat, urbainst } from "../../public/fonts";
-import { PreviewProvider } from "@/providers/preview-provider";
+import Providers from "@/providers";
 
 export const metadata: Metadata = {
   title: "Rencard – Seu link, seus produtos e serviços",
@@ -54,7 +54,7 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} ${montserrat.variable} ${urbainst.variable} antialiased`}
       >
-        <PreviewProvider>{children}</PreviewProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
