@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 
 // Schema && SchemaType
 import { loginSchema, LoginSchema } from "./signin-schema";
@@ -23,18 +24,26 @@ export default function LoginForm() {
   const { onSubmit } = useSignin();
 
   return (
-    <form
+    <motion.form
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col px-[1.25rem]"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <SectionAuthTitle
         title="Entrar"
         description="Acesse sua conta e gerencie seu Rencard"
       />
-      <fieldset className="self-center  max-w-[34.8125rem] w-full">
+      <fieldset className="self-center max-w-[34.8125rem] w-full">
         <legend className="sr-only">Login</legend>
         {/* Email field */}
-        <div className="flex flex-col ">
+        <motion.div
+          className="flex flex-col"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
           <Label htmlFor="email" variant="auth" error={!!errors.email}>
             Email
           </Label>
@@ -53,10 +62,15 @@ export default function LoginForm() {
           {errors.email && (
             <FieldError id="email-error" message={errors.email.message} />
           )}
-        </div>
+        </motion.div>
 
-        {/*  Password field */}
-        <div className="flex flex-col mt-[2rem] mb-[1rem]">
+        {/* Password field */}
+        <motion.div
+          className="flex flex-col mt-[2rem] mb-[1rem]"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
           <Label htmlFor="password" variant="auth" error={!!errors.password}>
             Senha
           </Label>
@@ -72,17 +86,21 @@ export default function LoginForm() {
             {...register("password")}
             placeholder="Digite sua senha"
           />
-
           {errors.password && (
             <FieldError id="email-error" message={errors.password.message} />
           )}
-        </div>
+        </motion.div>
 
-        {/* Forgot password && Action button && Dont have account  */}
-        <div className="flex flex-col space-y-[1.25rem]">
+        {/* Forgot password && Action button && Dont have account */}
+        <motion.div
+          className="flex flex-col space-y-[1.25rem]"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
           <Link
             href="/auth/forgot-password"
-            className="self-end font-urbanist font-semibold text-[1.25rem] text-neutral-strong hover:underline hover:text-neutral-soft transition-colors duration-300 "
+            className="self-end font-urbanist font-semibold text-[1.25rem] text-neutral-strong hover:underline hover:text-neutral-soft transition-colors duration-300"
           >
             Esqueci a senha
           </Link>
@@ -90,9 +108,14 @@ export default function LoginForm() {
           <Button variant="default" sizeH="xl">
             Entrar
           </Button>
-        </div>
+        </motion.div>
 
-        <p className="text-center mt-[3.125rem] font-manrope text-neutral-strong">
+        <motion.p
+          className="text-center mt-[3.125rem] font-manrope text-neutral-strong"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+        >
           Não tem uma conta?{" "}
           <Link
             href="/auth/signup"
@@ -100,8 +123,8 @@ export default function LoginForm() {
           >
             Criar conta
           </Link>
-        </p>
+        </motion.p>
       </fieldset>
-    </form>
+    </motion.form>
   );
 }
