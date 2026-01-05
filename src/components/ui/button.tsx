@@ -1,8 +1,10 @@
 import { ButtonHTMLAttributes } from "react";
 import Link from "next/link";
+import Loader from "../loader";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  isLoading: boolean;
   sizeH: "sm" | "xl" | "md";
   variant: "default" | "outline" | "custom" | "destructive";
   href?: string;
@@ -11,6 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export default function Button({
   children,
   sizeH,
+  isLoading,
   variant,
   href,
   ...props
@@ -33,7 +36,12 @@ export default function Button({
     focus-visible:ring-offset-2
     cursor-pointer
   `,
+    disabled:
+      "bg-black/50 text-white cursor-not-allowed hover:bg-green-nature/50 border-green-nature/50",
   };
+
+  const isDisabled = isLoading || props.disabled;
+  const appliedVariant = isDisabled ? variantMap.disabled : variantMap[variant];
 
   // if href is provided, render Link
   if (href) {
@@ -51,9 +59,10 @@ export default function Button({
   return (
     <button
       {...props}
-      className={`${baseButtonClass} ${sizeMap[sizeH]} ${variantMap[variant]} ${props.className}`}
+      disabled={isDisabled}
+      className={`${baseButtonClass} ${sizeMap[sizeH]} ${props.className} ${appliedVariant}`}
     >
-      {children}
+      {isLoading ? <Loader /> : children}
     </button>
   );
 }

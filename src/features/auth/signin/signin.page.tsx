@@ -24,9 +24,16 @@ export default function LoginForm() {
   const searchParams = useSearchParams();
   const {
     register,
+    watch,
     handleSubmit,
-    formState: { errors },
-  } = useForm<LoginSchema>({ resolver: zodResolver(loginSchema) });
+    formState: { errors, isSubmitting },
+  } = useForm<LoginSchema>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: { email: "", password: "" },
+  });
+
+  const values = watch();
+  const hasInput = values.email.trim() !== "" || values.password.trim() !== "";
 
   const { onSubmit } = useSignin();
   const { showToast } = useToast();
@@ -127,7 +134,13 @@ export default function LoginForm() {
             Esqueci a senha
           </Link>
 
-          <Button type="submit" variant="default" sizeH="xl">
+          <Button
+            type="submit"
+            variant="default"
+            sizeH="xl"
+            disabled={!hasInput}
+            isLoading={isSubmitting}
+          >
             Entrar
           </Button>
         </motion.div>

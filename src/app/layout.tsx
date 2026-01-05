@@ -5,6 +5,7 @@ import Providers from "@/providers";
 
 export const metadata: Metadata = {
   title: "Rencard – Seu link, seus produtos e serviços",
+
   description:
     "Rencard é uma plataforma para centralizar seus links, produtos e serviços, incluindo RencardPro, RencTag e o Cartão Rencard. Organize tudo em um único lugar de forma prática e profissional.",
   keywords: [

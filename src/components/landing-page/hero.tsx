@@ -4,10 +4,9 @@ import Image from "next/image";
 import { motion, Variants, Transition } from "framer-motion";
 import Button from "../ui/button";
 
-// Tipando a animação corretamente
 const transition: Transition = {
   duration: 0.6,
-  ease: "easeOut", // agora aceito pelo tipo
+  ease: "easeOut",
 };
 
 const containerVariants: Variants = {
