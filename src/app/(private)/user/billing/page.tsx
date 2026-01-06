@@ -1,4 +1,4 @@
-import PageHeader from "@/features/(roles)/components/page-header";
+import PageHeader from "@/shared/ui/page-header";
 import Button from "@/components/ui/button";
 import CardBilling from "@/components/user/card-billing";
 import { Check, X } from "lucide-react";

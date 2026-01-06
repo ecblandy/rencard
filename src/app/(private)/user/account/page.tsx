@@ -1,17 +1,9 @@
-import AccountInfoForm from "@/components/dashboard/account-info-form";
-import AddressForm from "@/components/dashboard/address-form";
-import DeleteAccount from "@/components/dashboard/delete-account";
-import PageHeader from "@/features/(roles)/components/page-header";
+import UserSection from "@/features/(roles)/client/settings/user.page";
 
 export default function AccountPage() {
   return (
     <section>
-      <PageHeader title="" description="" />
-      <div className="space-y-[2.5625rem]">
-        <AddressForm />
-        <AccountInfoForm />
-        <DeleteAccount />
-      </div>
+      <UserSection />
     </section>
   );
 }

@@ -19,6 +19,7 @@ import { FaPix } from "react-icons/fa6";
 // Components
 import Button from "../../../components/ui/button";
 import { useLogout } from "@/features/auth/logout/use-logout";
+import { useSession } from "next-auth/react";
 
 // Types
 
@@ -28,10 +29,10 @@ type NavLinks = {
   href: string;
 };
 
-type UserRole = "user" | "creator" | "admin";
+type UserRole = "client" | "creator" | "admin";
 
 const NAV_LINKS_BY_ROLE: Record<UserRole, NavLinks[]> = {
-  user: [
+  client: [
     {
       label: "Dashboard",
       icon: LayoutDashboard,
@@ -103,9 +104,12 @@ const NAV_LINKS_BY_ROLE: Record<UserRole, NavLinks[]> = {
 
 export default function SidebarNavLinks() {
   const pathname = usePathname();
-  const links = NAV_LINKS_BY_ROLE["admin"];
-
+  const { data: session } = useSession();
   const { logout } = useLogout();
+
+  const role: UserRole = (session?.user?.role as UserRole) ?? "client";
+  const links = NAV_LINKS_BY_ROLE[role];
+
   return (
     <nav
       aria-label="Navegação principal"

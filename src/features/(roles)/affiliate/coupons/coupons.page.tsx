@@ -1,4 +1,4 @@
-import PageHeader from "../../components/page-header";
+import PageHeader from "../../../../shared/ui/page-header";
 import CouponCards from "./components/coupon-cards";
 
 export default function CouponsSection() {

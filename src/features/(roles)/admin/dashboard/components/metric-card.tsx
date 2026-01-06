@@ -1,6 +1,6 @@
 // Components
 import { LucideIcon } from "lucide-react";
-import Surface from "../../../components/surface";
+import Surface from "../../../../../shared/ui/surface";
 
 interface MetricOptions {
   value: number | string;

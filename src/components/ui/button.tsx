@@ -4,7 +4,7 @@ import Loader from "../loader";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  isLoading: boolean;
+  isLoading?: boolean;
   sizeH: "sm" | "xl" | "md";
   variant: "default" | "outline" | "custom" | "destructive";
   href?: string;

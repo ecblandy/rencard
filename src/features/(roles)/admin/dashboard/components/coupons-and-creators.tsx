@@ -1,7 +1,7 @@
 // Components
 import Button from "@/components/ui/button";
-import HeaderCard from "@/features/(roles)/components/header-form";
-import Surface from "@/features/(roles)/components/surface";
+import HeaderCard from "@/shared/ui/header-form";
+import Surface from "@/shared/ui/surface";
 import MetricCard from "./metric-card";
 
 // Icons

@@ -1,6 +1,6 @@
-import PageHeader from "@/features/(roles)/components/page-header";
-import PeriodFilter from "@/features/(roles)/components/period-filter";
-import MetricCard from "@/features/(roles)/components/metric-card";
+import PageHeader from "@/shared/ui/page-header";
+import PeriodFilter from "@/features/filters/components/period-filter";
+import MetricCard from "@/shared/ui/metric-card";
 import { ProfileViewsChart } from "@/components/user/profile-views-chart";
 import { TopLinksChart } from "@/components/user/top-links-chart";
 import { Eye, Share2 } from "lucide-react";

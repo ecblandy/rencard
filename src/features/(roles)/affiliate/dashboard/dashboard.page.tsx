@@ -1,6 +1,6 @@
 // Components
-import MetricCard from "@/features/(roles)/components/metric-card";
-import PageHeader from "@/features/(roles)/components/page-header";
+import MetricCard from "@/shared/ui/metric-card";
+import PageHeader from "@/shared/ui/page-header";
 
 // Icons
 import { PiCursorClick } from "react-icons/pi";

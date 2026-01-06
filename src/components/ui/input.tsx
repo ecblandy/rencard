@@ -9,7 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   disable?: boolean;
   variant: "disabled" | "default";
   sizeH: "sm" | "xl";
-  error: boolean;
+  error?: boolean;
 }
 
 const baseInput =

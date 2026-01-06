@@ -1,5 +1,5 @@
 // Components
-import PageHeader from "../../components/page-header";
+import PageHeader from "../../../../shared/ui/page-header";
 import PixKeyForm from "./components/pix-key-form";
 
 export default function PixSection() {

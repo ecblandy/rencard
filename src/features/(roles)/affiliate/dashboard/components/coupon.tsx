@@ -1,5 +1,5 @@
 // Components
-import Surface from "@/features/(roles)/components/surface";
+import Surface from "@/shared/ui/surface";
 import Button from "@/components/ui/button";
 
 // Icons

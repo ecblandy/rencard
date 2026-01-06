@@ -1,6 +1,6 @@
 // Components
-import PageHeader from "../../components/page-header";
-import PeriodFilter from "../../components/period-filter";
+import PageHeader from "../../../../shared/ui/page-header";
+import PeriodFilter from "../../../filters/components/period-filter";
 import MetricCard from "./components/metric-card";
 import { PlatformGrowthChart } from "./components/platform-growth-chart";
 import CouponsAndCreators from "./components/coupons-and-creators";

@@ -1,8 +1,7 @@
-import Button from "../ui/button";
-import Input from "../ui/input";
-import Label from "../ui/label";
-import CardAccount from "./card-account";
-import HeaderCard from "../../features/(roles)/components/header-form";
+import CardAccount from "@/components/dashboard/card-account";
+import HeaderCard from "../../../shared/ui/header-form";
+import Label from "@/components/ui/label";
+import Button from "@/components/ui/button";
 
 export default function AccountInfoForm() {
   return (
@@ -16,7 +15,7 @@ export default function AccountInfoForm() {
         <fieldset className="space-y-[1rem]">
           {/* Email */}
           <div>
-            <Label>E-mail</Label>
+            <Label htmlFor="email">E-mail</Label>
             <div className="flex items-end gap-2">
               <Input
                 placeholder="email@exemplo.com"
@@ -36,7 +35,7 @@ export default function AccountInfoForm() {
 
           {/* Password */}
           <div className="flex flex-col">
-            <Label>Telefone</Label>
+            <Label variant="default">Telefone</Label>
             <Input variant="default" placeholder="+55 (00) 00000-0000" />
           </div>
 
