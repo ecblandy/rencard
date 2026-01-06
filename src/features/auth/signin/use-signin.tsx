@@ -19,15 +19,21 @@ export function useSignin() {
     const result = await signIn("credentials", {
       email: data.email,
       password: data.password,
-      redirect: false, // não redireciona automaticamente
+      redirect: false,
     });
 
-    setLoading(false);
-
     if (result?.error) {
-      setError("Email ou senha inválidos");
+      showToast({
+        title: "Erro ao realizar login",
+        message:
+          result.error ||
+          "Não foi possível autenticar. Verifique suas credenciais e tente novamente.",
+        type: "error",
+      });
       return;
     }
+
+    setLoading(false);
 
     showToast({
       title: "Login realizado!",
@@ -45,7 +51,7 @@ export function useSignin() {
         case "creator":
           push("/creator/dashboard");
           break;
-        case "user":
+        case "client":
           push("/user/dashboard");
           break;
         default:

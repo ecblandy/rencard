@@ -18,10 +18,14 @@ export const authOptions: NextAuthOptions = {
       authorize: async (credentials) => {
         if (!credentials) return null;
 
-        const { email, role, id } = await signInUseCase({
+        const result = await signInUseCase({
           email: credentials.email,
           password: credentials.password,
         });
+
+        if (!result) return null;
+
+        const { email, role, id } = result;
 
         return {
           id,
