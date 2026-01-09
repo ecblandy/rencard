@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -14,6 +18,8 @@
   --color-neutral-soft: #939393;
   --color-neutral-medium: #7a7a7a;
   --color-neutral-strong: #454545;
+
+  --color-success: #59b15c;
 
   --color-error: #c32222;
   --color-error-soft: #fcf4f4;
@@ -208,5 +214,28 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  background: #fff;
+  box-sizing: border-box;
+  animation: shadowExpandX 2s linear infinite alternate;
+}
+
+@keyframes shadowExpandX {
+  0% {
+    box-shadow: 0 0, 0 0;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: -24px 0, 24px 0;
+    color: rgba(255, 255, 255, 0.8);
   }
 }

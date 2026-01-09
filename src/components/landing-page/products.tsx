@@ -1,6 +1,7 @@
-import Image from "next/image";
+"use client";
 
-// Components
+import Image from "next/image";
+import { motion } from "framer-motion";
 import SectionHeader from "./section-header";
 
 const productsDetails = [
@@ -20,18 +21,26 @@ const productsDetails = [
 
 export default function Products() {
   return (
-    <section className="py-[3.75rem] bg-black px-[1.25rem]">
+    <section id="products" className="py-[3.75rem] bg-black px-[1.25rem]">
       <SectionHeader
         title="Os produtos"
         description="Escolha o formato ideal para o seu estilo"
         texStyle="white"
       />
 
-      <ul className="flex flex-wrap  justify-center w-full gap-[7.8125rem] mt-[2.5rem]">
+      <ul className="flex flex-wrap justify-center w-full gap-[7.8125rem] mt-[2.5rem]">
         {productsDetails.map(
           ({ imageUrl, info, title, description }, index) => (
-            <li
+            <motion.li
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                delay: index * 0.2,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
               className="flex flex-col items-center gap-[2.5rem] p-6 font-manrope rounded-[1.25rem] bg-white border border-[#7A7A7A]"
             >
               <div className="relative w-full h-48">
@@ -43,17 +52,17 @@ export default function Products() {
                 />
               </div>
               <div className="flex flex-col gap-[1rem]">
-                <span className="font-medium text-[.875rem] text-[#7A7A7A]">
+                <span className="font-medium text-[.875rem] text-neutral-strong">
                   {info}
                 </span>
                 <h3 className="font-urbanist font-semibold text-[1.5rem]">
                   {title}
                 </h3>
-                <p className="text-[#7A7A7A] max-w-[18.75rem] w-full">
+                <p className="text-neutral-strong max-w-[18.75rem] w-full">
                   {description}
                 </p>
               </div>
-            </li>
+            </motion.li>
           )
         )}
       </ul>

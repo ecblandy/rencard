@@ -10,7 +10,7 @@ export default function AuthLayout({
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="pb-[3.75rem]">{children}</main>
       <Footer />
     </>
   );

@@ -3,7 +3,7 @@ import { LabelHTMLAttributes } from "react";
 interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   children: string;
   variant: "default" | "auth";
-  error: boolean;
+  error?: boolean;
 }
 
 export default function Label({

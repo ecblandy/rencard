@@ -1,6 +1,7 @@
-import { FaCheck } from "react-icons/fa";
+"use client";
 
-// Components
+import { FaCheck } from "react-icons/fa";
+import { motion } from "framer-motion";
 import SectionHeader from "./section-header";
 import Button from "../ui/button";
 
@@ -14,7 +15,7 @@ interface PlanStyle {
 
 interface PlanDetail {
   id: number;
-  type: PlanType; // aqui dizemos que só pode ser "galera" | "pro"
+  type: PlanType;
   title: string;
   description: string;
   features: string[];
@@ -61,7 +62,7 @@ const plansDetails: PlanDetail[] = [
 
 const plansStyle: Record<PlanType, PlanStyle> = {
   galera: {
-    card: "bg-[#FBFBFB]",
+    card: "bg-[#FBFBFB] text-neutral-strong",
     button: "bg-black text-white hover:bg-[#333333]",
     icon: "text-black",
   },
@@ -74,30 +75,39 @@ const plansStyle: Record<PlanType, PlanStyle> = {
 
 export default function Plans() {
   return (
-    <section className="flex flex-col items-center gap-[2.5rem] py-[3.75rem] px-[1.25rem] bg-gradient-to-t from-[#FBFBFB] to-[#C2C2C2]">
+    <section
+      id="plans"
+      className="flex flex-col items-center gap-[2.5rem] py-[3.75rem] px-[1.25rem] bg-gradient-to-t from-[#FBFBFB] to-[#C2C2C2]"
+    >
       <SectionHeader
         description="O Rencard se adapta ao seu estilo"
         title="Escolha o modelo que mais combina com você"
       />
-      <div className="flex justify-center  flex-wrap w-full gap-[6rem] items-start">
+      <div className="flex justify-center flex-wrap w-full gap-[6rem] items-start">
         {plansDetails.map(
-          ({ id, title, description, features, type, buttonTitle }) => {
+          ({ id, title, description, features, type, buttonTitle }, index) => {
             const style = plansStyle[type];
             return (
-              <div
+              <motion.div
                 key={id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  delay: index * 0.2,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
                 className={`font-urbanist max-w-[28.75rem] w-full h-auto p-6 rounded-[.625rem] ${style.card}`}
               >
                 <div className="max-w-[21.25rem] w-full mb-[2.375rem]">
                   <h3 className="font-bold text-[2rem]">{title}</h3>
-                  <p className="font-semibold text-[1.25rem] text-[#939393]">
-                    {description}
-                  </p>
+                  <p className="font-semibold text-[1.25rem]">{description}</p>
                 </div>
 
                 <ul className="space-y-[2rem]">
-                  {features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-2">
+                  {features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
                       <FaCheck size={20} className={style.icon} />
                       <p>{feature}</p>
                     </li>
@@ -107,11 +117,11 @@ export default function Plans() {
                 <Button
                   variant="custom"
                   sizeH="sm"
-                  className={`${plansStyle[type].button} mt-[2.5rem] w-full`}
+                  className={`${style.button} mt-[2.5rem] w-full`}
                 >
                   {buttonTitle}
                 </Button>
-              </div>
+              </motion.div>
             );
           }
         )}

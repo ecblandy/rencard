@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-// Components
+import { motion, AnimatePresence } from "framer-motion";
 import SectionHeader from "./section-header";
 import { ChevronUp, ChevronDown } from "lucide-react";
 
@@ -25,12 +25,12 @@ const faqDetails = [
   {
     title: "Qual modelo devo escolher: Da Galera ou Pro?",
     description: `
-        A escolha depende do seu objetivo:
+A escolha depende do seu objetivo:
 
 Escolha o Rencard Da Galera se você quer um perfil social prático, para compartilhar suas redes sociais, PIX e música de forma rápida e descontraída com amigos e novos contatos.
 
 Escolha o Rencard Pro se você é um profissional, empreendedor ou criador de conteúdo. Este modelo oferece uma experiência completa com ferramentas para destacar seu trabalho: você pode adicionar portfólio em vídeo, ver métricas de acesso, integrar ferramentas de marketing e personalizar totalmente o perfil com sua marca. É a solução perfeita para quem não tem um site ou quer complementá-lo com uma vitrine dinâmica.
-        `,
+`,
   },
   {
     title:
@@ -59,41 +59,43 @@ export default function Faq() {
       />
 
       <ul className="flex flex-col items-center gap-[1rem] mt-[2.5rem] w-full">
-        {faqDetails.map(({ title, description }, index) => (
-          <li
-            key={index}
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            className="max-w-[56.125rem] w-full  min-h-[3.5rem] h-auto rounded-[.625rem] border border-[#C2C2C2] py-[1rem] px-6"
-          >
-            <div className="flex justify-between items-center cursor-pointer">
-              <h4 className="font-urbanist font-semibold text-[1.25rem]">
-                {title}
-              </h4>
-              {openIndex === index ? (
-                <ChevronUp
-                  size={20}
-                  className="transition-transform duration-300"
-                />
-              ) : (
-                <ChevronDown
-                  size={20}
-                  className="transition-transform duration-300"
-                />
-              )}
-            </div>
-            <p
-              className={`font-manrope overflow-hidden transition-all duration-300 ease-in-out whitespace-pre-line
-              ${
-                openIndex === index
-                  ? "max-h-[500px] opacity-100 mt-4"
-                  : "max-h-0 opacity-0"
-              }
-                      `}
+        {faqDetails.map(({ title, description }, index) => {
+          const isOpen = openIndex === index;
+          return (
+            <li
+              key={index}
+              className="max-w-[56.125rem] w-full min-h-[3.5rem] h-auto rounded-[.625rem] border border-[#C2C2C2] py-[1rem] px-6 cursor-pointer"
+              onClick={() => setOpenIndex(isOpen ? null : index)}
             >
-              {description}
-            </p>
-          </li>
-        ))}
+              <div className="flex justify-between items-center">
+                <span className="font-urbanist font-semibold text-[1.25rem]">
+                  {title}
+                </span>
+                <motion.div
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                </motion.div>
+              </div>
+
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.p
+                    key="content"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="font-manrope mt-4 whitespace-pre-line overflow-hidden"
+                  >
+                    {description}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { manrope } from "../../public/fonts";
-import { PreviewProvider } from "@/providers/preview-provider";
+import { manrope, montserrat, urbainst } from "../../public/fonts";
+import Providers from "@/providers";
 
 export const metadata: Metadata = {
   title: "Rencard – Seu link, seus produtos e serviços",
+  icons: {
+    icon: "/images/favicon.png",
+  },
   description:
     "Rencard é uma plataforma para centralizar seus links, produtos e serviços, incluindo RencardPro, RencTag e o Cartão Rencard. Organize tudo em um único lugar de forma prática e profissional.",
   keywords: [
@@ -51,8 +54,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${manrope.variable} antialiased`}>
-        <PreviewProvider>{children}</PreviewProvider>
+      <body
+        className={`${manrope.variable} ${montserrat.variable} ${urbainst.variable} antialiased`}
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

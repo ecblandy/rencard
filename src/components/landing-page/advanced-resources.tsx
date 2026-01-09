@@ -1,4 +1,6 @@
-// Icons
+"use client";
+
+import { motion } from "framer-motion";
 import { ImStatsDots } from "react-icons/im";
 import { TbClick } from "react-icons/tb";
 import { CiCreditCard1, CiVideoOn } from "react-icons/ci";
@@ -7,8 +9,6 @@ import { AiOutlinePicture } from "react-icons/ai";
 import { MdAdsClick } from "react-icons/md";
 import { IoQrCode } from "react-icons/io5";
 import { IoIosLink } from "react-icons/io";
-
-// Components
 import SectionHeader from "./section-header";
 
 const advancedResourcesDetails = [
@@ -61,27 +61,40 @@ const advancedResourcesDetails = [
 
 export default function AdvancedResources() {
   return (
-    <section className="px-[1.25rem] py-[3.75rem] bg-[#C2C2C2]">
+    <section
+      id="resources"
+      className="px-[1.25rem] py-[3.75rem] bg-[linear-gradient(0deg,#FBFBFB_0%,#C2C2C2_100%)]"
+    >
       <SectionHeader
         title="Recursos avançados"
         description="Tudo que você precisa para se destacar"
       />
 
       <ul className="flex flex-wrap justify-center gap-[2.5rem] mt-[2.5rem]">
-        {advancedResourcesDetails.map(({ title, description, icon: Icon }) => (
-          <li
-            key={title}
-            className="max-w-[14.1875rem] w-full rounded-[1.25rem] py-[1rem] px-6 bg-white shadow-[0_1px_3px_1px_#00000026,_0_1px_2px_0px_#0000004D]"
-          >
-            <Icon size={30} className="text-[#454545]" />
-            <h3 className="mt-[1rem] mb-[.5rem] font-urbanist text-[1.25rem] whitespace-nowrap font-semibold">
-              {title}
-            </h3>
-            <p className="font-manrope font-semibold text-[#939393]">
-              {description}
-            </p>
-          </li>
-        ))}
+        {advancedResourcesDetails.map(
+          ({ title, description, icon: Icon }, index) => (
+            <motion.li
+              key={title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                delay: index * 0.15,
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+              className="max-w-[14.1875rem] w-full rounded-[1.25rem] py-[1rem] px-6 bg-white shadow-[0_1px_3px_1px_#00000026,_0_1px_2px_0px_#0000004D] flex flex-col items-center"
+            >
+              <Icon size={30} className="text-[#454545]" />
+              <h3 className="mt-[1rem] mb-[.5rem] font-urbanist text-[1.25rem] whitespace-nowrap font-semibold text-center">
+                {title}
+              </h3>
+              <p className="font-manrope font-semibold text-neutral-strong text-center">
+                {description}
+              </p>
+            </motion.li>
+          )
+        )}
       </ul>
     </section>
   );

@@ -1,4 +1,5 @@
 "use client";
+import clsx from "clsx";
 import { usePathname } from "next/navigation";
 const navLinks = [
   {
@@ -19,8 +20,15 @@ const navLinks = [
 
 export default function HeaderNavLinks() {
   const pathname = usePathname();
+
+  const AUTH_ROUTES = ["/auth/signin", "/auth/signup"];
+
+  const isAuth = AUTH_ROUTES.includes(pathname);
   return (
-    <nav aria-label="Navegação Principal">
+    <nav
+      aria-label="Navegação Principal"
+      className={clsx("max-lg:hidden", isAuth ? "hidden" : "")}
+    >
       <ul className="flex max-sm:hidden gap-24.75 font-manrope text-black">
         {navLinks.map((link) => {
           const isActiveLink = pathname === link.href;
