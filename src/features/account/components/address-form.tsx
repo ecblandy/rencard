@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { AddressSchema, addressSchema } from "@/shared/schema/address.schema";
 import { useForm } from "react-hook-form";
 import { useHookFormMask } from "use-mask-input";
+import { useProfile } from "@/shared/auth/hooks/use-current-user";
 
 export default function AddressForm() {
   const {
@@ -21,6 +22,10 @@ export default function AddressForm() {
 
   const registerWithMask = useHookFormMask(register);
 
+  const { data: user, isLoading, error } = useProfile();
+
+  console.log(user);
+
   return (
     <Surface>
       <form className="">
@@ -29,18 +34,33 @@ export default function AddressForm() {
           <div className="grid grid-cols-2 space-x-[1.125rem] space-y-[1.5rem]">
             <div className="flex flex-col">
               <Label variant="default">Rua</Label>
-              <Input variant="default" sizeH="sm" placeholder="Nome da rua" />
+              <Input
+                variant="default"
+                sizeH="sm"
+                placeholder="Nome da rua"
+                {...register("street")}
+              />
             </div>
             <div className="flex flex-col">
               <Label variant="default">Número</Label>
-              <Input variant="default" sizeH="sm" placeholder="Número" />
+              <Input
+                variant="default"
+                sizeH="sm"
+                placeholder="Número"
+                {...register("number")}
+              />
             </div>
           </div>
 
           <div className="grid grid-cols-2 space-x-[1.125rem] space-y-[1.5rem]">
             <div className="flex flex-col">
               <Label variant="default">Bairro</Label>
-              <Input variant="default" sizeH="sm" placeholder="Bairro" />
+              <Input
+                variant="default"
+                sizeH="sm"
+                placeholder="Bairro"
+                {...register("neighborhood")}
+              />
             </div>
             <div className="flex flex-col">
               <Label variant="default">CEP</Label>
@@ -56,11 +76,21 @@ export default function AddressForm() {
           <div className="grid grid-cols-2 space-x-[1.125rem] space-y-[1.5rem]">
             <div className="flex flex-col">
               <Label variant="default">Estado</Label>
-              <Input variant="default" sizeH="sm" placeholder="Estado" />
+              <Input
+                variant="default"
+                sizeH="sm"
+                placeholder="Estado"
+                {...register("state")}
+              />
             </div>
             <div className="flex flex-col">
               <Label variant="default">Cidade</Label>
-              <Input variant="default" sizeH="sm" placeholder="Cidade" />
+              <Input
+                variant="default"
+                sizeH="sm"
+                placeholder="Cidade"
+                {...register("city")}
+              />
             </div>
           </div>
 
@@ -70,6 +100,7 @@ export default function AddressForm() {
               variant="default"
               sizeH="sm"
               placeholder="Complemento (opcional)"
+              {...register("complement")}
             />
           </div>
 

@@ -1,11 +1,11 @@
-import CardAccount from "@/components/dashboard/card-account";
 import HeaderCard from "../../../shared/ui/header-form";
 import Label from "@/components/ui/label";
 import Button from "@/components/ui/button";
+import Surface from "@/shared/ui/surface";
 
 export default function AccountInfoForm() {
   return (
-    <CardAccount>
+    <Surface>
       <form>
         <HeaderCard
           title="Informações da conta"
@@ -59,6 +59,6 @@ export default function AccountInfoForm() {
           </div>
         </fieldset>
       </form>
-    </CardAccount>
+    </Surface>
   );
 }
