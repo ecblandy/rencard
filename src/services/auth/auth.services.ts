@@ -7,4 +7,11 @@ export const AuthServices = {
     return axiosInstance.post(AUTH_ENDPOINTS.login, payload);
   },
   profile: () => axiosInstance.get(AUTH_ENDPOINTS.profile),
+  revalidateAccess: async (refresh: string) => {
+    const { data } = await axiosInstance.post(AUTH_ENDPOINTS.refreshToken, {
+      refresh: refresh,
+    });
+
+    console.log(data);
+  },
 };

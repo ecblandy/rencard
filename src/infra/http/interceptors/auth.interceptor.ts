@@ -1,16 +1,18 @@
+"use server";
 import { InternalAxiosRequestConfig } from "axios";
+import { cookies } from "next/headers";
 
-export function authInterceptor(config: InternalAxiosRequestConfig) {
-  const accessToken = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("access="))
-    ?.split("=")[1];
+export async function authInterceptor(config: InternalAxiosRequestConfig) {
+  console.log("interceptor");
+  const cookieStore = await cookies();
+
+  const accessToken = cookieStore.get("access")?.value;
+
+  console.log(accessToken, "token");
 
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
-
-  console.log(accessToken);
 
   return config;
 }
